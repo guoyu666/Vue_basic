@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue实例和容器是一夫一妻制</title>
+</head>
+    <!--安装Vue-->
+    <script src="../js/vue.js"></script>
+<body>
+    <!--准备容器-->
+    <div class="app">
+        <h1>{{msg}}</h1>
+    </div>
+
+    <div class="app">
+        <h1>{{msg}}</h1>
+    </div>
+
+    <!--Vue程序-->
+    <script>
+      /*
+      验证：一个Vue实例可以接管多个容器吗？
+      答案：不能，一个Vue实例只能接管一个容器，一旦接管到容器之后，即使后面有相同的容器，Vue也是不管的，因为Vue实例已经“娶到媳妇了”
+       */
+      new Vue({
+        el: '.app',
+        data: {
+          msg: 'Hello Vue!'
+        }
+      })
+    </script>
+
+</body>
+</html>

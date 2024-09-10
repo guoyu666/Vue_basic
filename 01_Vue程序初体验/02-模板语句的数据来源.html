@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模板语句的数据来源</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+<!--指定挂载位置-->
+<div id="app">
+    <!--Vue程序-->
+    <script>
+        /*
+        模板语句的数据来源：
+        1. 谁可以给模板语句提供数据支持呢？data选项
+        2. data选项的类型是什么？Object | Function （对象或者函数）
+        3. data配置项的专业叫法：Vue实例的数据对象（data实际上是给整个实例提供数据来源的）
+        4. 如果data是对象的话，对象必须是纯粹的对象（含有零个或者多个的key/value对）
+        5. data数据如何插入到模板语句中？
+           {{}}这是Vue框架自己搞的一套语法，别的框架看不懂的，浏览器也是不能够识别的
+           Vue框架自己是能够看懂的，这种语法在Vue框架中被称为：模板语法中的插值语法
+           怎么用？
+             {{data的key}}
+         */
+        const myVue = new Vue({
+            template: '<h1>最近非常火爆的电视剧{{name}},它的上映日期是{{releaseTime}},主角是{{leader.name}}，年龄是{{leader.age}}</h1>',
+            data: {
+                name: '狂飙！！',
+                releaseTime: '2021-04-01',
+                leader: {
+                    name: '高启强',
+                    age: 35
+                },
+                actors: [{
+                    name: '张三',
+                    age: 25
+                }, {
+                    name: '李四',
+                    age: 28
+                }]
+            }
+        })
+        myVue.$mount('#app')
+    </script>
+</div>
+</body>
+</html>
