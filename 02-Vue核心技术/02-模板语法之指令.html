@@ -34,14 +34,14 @@
                 false:这个指令所在的标签，不会被渲染到浏览器中
 -->
 <!--准备一个容器-->
-<div id="app">
+<div id="app6">
     <h1>{{ message }}</h1>
     <h1 v-once>{{message}}</h1>
     <h1 v-if="a > b">v-if测试:{{message}}</h1>
 </div>
 <script>
     new Vue({
-        el: '#app',
+        el: '#app6',
         data: {
             message: 'Hello Vue!',
             a : 10,

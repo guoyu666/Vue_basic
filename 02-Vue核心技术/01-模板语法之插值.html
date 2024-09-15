@@ -13,10 +13,10 @@
 2. 常量都可以
 3. 只要是合法的javascript表达式都可以
 4. 模板表达式都被放在沙盒中，只能访问全局变量的一个白名单：如Math和Date等
-
 -->
+
 <!--准备容器-->
-<div id="app">
+<div id="app5">
     <h1>{{msg}}</h1>
     <h1>{{sayhello()}}</h1>
 
@@ -39,7 +39,7 @@
 <!--vue程序-->
 <script>
     new Vue({
-        el: '#app',
+        el: '#app5',
         data: {
             msg: 'Hello Vue.js', // 为了方便沟通，以后我们把msg叫做变量（这行代码就可以看做是变量的声明）
             sayhello: function () {
