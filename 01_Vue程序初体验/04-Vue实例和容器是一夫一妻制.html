@@ -8,11 +8,11 @@
     <script src="../js/vue.js"></script>
 <body>
     <!--准备容器-->
-    <div class="app">
+    <div class="app4">
         <h1>{{msg}}</h1>
     </div>
 
-    <div class="app">
+    <div class="app4">
         <h1>{{msg}}</h1>
     </div>
 
@@ -23,7 +23,7 @@
       答案：不能，一个Vue实例只能接管一个容器，一旦接管到容器之后，即使后面有相同的容器，Vue也是不管的，因为Vue实例已经“娶到媳妇了”
        */
       new Vue({
-        el: '.app',
+        el: '.app4',
         data: {
           msg: 'Hello Vue!'
         }

@@ -7,7 +7,7 @@
 </head>
 <body>
 <!--指定挂载位置-->
-<div id="app">
+<div id="app2">
     <!--Vue程序-->
     <script>
         /*
@@ -18,12 +18,13 @@
         4. 如果data是对象的话，对象必须是纯粹的对象（含有零个或者多个的key/value对）
         5. data数据如何插入到模板语句中？
            {{}}这是Vue框架自己搞的一套语法，别的框架看不懂的，浏览器也是不能够识别的
-           Vue框架自己是能够看懂的，这种语法在Vue框架中被称为：模板语法中的插值语法
+           Vue框架自己是能够看懂的，这种语法在Vue框架中被称为：模板语法中的插值语法，有的人把它叫做"胡子语法"
            怎么用？
              {{data的key}}
+           插值语法的小细节{这里不能有其它字符串包括空格{}}这里不能有其它字符串包括空格}
          */
         const myVue = new Vue({
-            template: '<h1>最近非常火爆的电视剧{{name}},它的上映日期是{{releaseTime}},主角是{{leader.name}}，年龄是{{leader.age}}</h1>',
+            template: '<h1>最近非常火爆的电视剧{{name}},它的上映日期是{{releaseTime}},主角是{{leader.name}}，年龄是{{leader.age}},其他演员包括{{actors[0].name}}</h1>',
             data: {
                 name: '狂飙！！',
                 releaseTime: '2021-04-01',
@@ -40,7 +41,7 @@
                 }]
             }
         })
-        myVue.$mount('#app')
+        myVue.$mount('#app2')
     </script>
 </div>
 </body>
