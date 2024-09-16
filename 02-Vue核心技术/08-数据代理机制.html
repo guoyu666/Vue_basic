@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据代理机制</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app11">
+        <h1>{{msg}}</h1>
+    </div>
+    
+    <script>
+        const vm = new Vue({
+            el : '#app11',
+            data : {
+                msg : 'Hello Vue!'
+            }
+        })
+    </script>
+<!--
+    1. 什么是数据代理机制？
+        通过访问代理对象的属性来间接访问目标对象的属性
+        数据代理机制的实现需要依靠：Object.defineProperty()方法
+    2. 在对象的函数/方法：function是可以省略的
+-->
+<script>
+    // 目标对象
+    let target = {
+        name: 'guoyu'
+    }
+
+    // 代理对象
+    let proxy = {}
+
+    /*
+    如果要实现数据代理机制的话，就需要给proxy新增一个name属性
+    注意：代理对象新增的这个属性的名字和目标对象的属性名要一致
+     */
+    Object.defineProperty(proxy, 'name', {
+        get: function () {
+            // 间接访问目标对象的属性
+            return target.name
+        },
+        set: function (value) {
+            target.name = value
+        }
+    })
+</script>
+</body>
+
+
+</html>

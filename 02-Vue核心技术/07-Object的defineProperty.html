@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Object.defineProperty()</title>
+    <!--安装Vue-->
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+  <!--
+    Object.defineProperty()
+    1. 这个方法是ES5新增的
+    2. 这个方法的作用是：给对象新增属性，或者设置对象原有的属性
+    3. 怎么用？
+      Object.Property(给哪个对象新增属性，'新增的这个属性叫啥'，{给新增的属性设置相关的配置项key:value对})
+    4. 第三个参数是属性相关的配置项，配置项都有哪些？每个配置项的作用是啥？
+      value配置项：设置属性的值
+      writable配置项：是否可以修改属性的值,true表示可以修改，false表示不可以修改
+      getter方法配置项：不需要我们手动调用，当读取属性值的时候，getter方法会被自动调用
+        *getter方法的返回值非常重要，这个返回值就代表这个属性它的值
+      setter方法配置项：不需要我们手动调用的，当修改属性的时候，setter方法被自动调用
+        *setter方法上是有一个参数的，这个参数可以接受传过来的值
+      注意：当配置项当中有setter和getter的时候，value和writable配置项都不能存在，否则会报错
+  -->
+
+<script>
+  // 这是一个普通对象
+  let phone = {}
+
+  // 临时变量
+  let temp
+
+  // 给上面的phone对象新增一个color属性
+  Object.defineProperty(phone, 'color', {
+    //value: "太空灰",
+    //writable: true,
+    // getter方法
+    get: function() {
+      console.log("getter方法执行了...")
+      return temp
+    },
+    // setter方法
+    set: function(value) {
+      console.log("setter方法执行了...",value)
+      temp = value
+    }
+  })
+</script>
+</body>
+</html>
